@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1 style="text-align: center;">IOT BASED SMART HOME</h1>
+	<div style="margin-left: 45%; margin-top:50px">
+		<form action="/api/index/" method="post">
+			{% csrf_token %}
+	    	<input id="team_name" type="hidden" name="current_status" value="{{device.status}}">
+	    	{% if device.status %}
+	    		<input type="submit" value="OFF" class="button btn-danger">
+	    	{% else %}
+	    		<input type="submit" value="ON" class="button">
+	    	{% endif%}
+		</form>
+	</div>
+  
+</body>
+</html>
